@@ -2,7 +2,7 @@
   <div class="container">
     <nav>
       <router-link
-        v-for="route in router.getRoutes()"
+        v-for="route in useRouter().getRoutes()"
         :key="route.path"
         :to="{ name: route.name }"
       >
@@ -17,8 +17,6 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-
-const router = useRouter()
 </script>
 
 <style>
