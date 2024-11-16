@@ -1,9 +1,8 @@
 <template>
-  <div class="home">
-    <h1>Template refs basics</h1>
+  <BasePage>
     <p ref="p">My name is {{ name }} and my age is {{ age }}</p>
     <button @click="handleClick">Click Me</button>
-  </div>
+  </BasePage>
 </template>
 
 <script setup>

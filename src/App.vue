@@ -1,18 +1,25 @@
 <template>
   <div class="container">
     <nav>
-      <router-link to="/">Basics</router-link>
-      <router-link :to="{ name: 'TemplateRefView' }">Template Ref</router-link>
-      <router-link :to="{ name: 'RefView' }">Basic reactivity with <code>ref()</code></router-link>
-      <router-link :to="{ name: 'ReactiveView' }"><code>ref()</code> vs <code>reactive()</code></router-link>
-      <router-link :to="{ name: 'ComputedView' }">Using <code>computed()</code></router-link>
-      <router-link :to="{ name: 'WatchView' }"><code>watch()</code> vs <code>watchEffect()</code></router-link>
+      <router-link
+        v-for="route in router.getRoutes()"
+        :key="route.path"
+        :to="{ name: route.name }"
+      >
+        <span v-html="route.meta.title"></span>
+      </router-link>
     </nav>
     <div class="content">
       <router-view/>
     </div>
   </div>
 </template>
+
+<script setup>
+import { useRouter } from 'vue-router';
+
+const router = useRouter()
+</script>
 
 <style>
 body {

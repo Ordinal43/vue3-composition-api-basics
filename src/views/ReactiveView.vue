@@ -1,13 +1,12 @@
 <template>
-  <div class="home">
-    <h1><code>ref()</code> vs <code>reactive()</code></h1>
+  <BasePage>
     <h2>Refs</h2>
     <p>{{ personOne.name }} - {{ personOne.age }}, Job: {{ jobOne }}</p>
     <button @click="updatePersonOne">Update person one</button>
     <h2>Reactive</h2>
     <p>{{ personTwo.name }} - {{ personTwo.age }}, Job: {{ jobTwo }}</p>
     <button @click="updatePersonTwo">Update person two</button>
-  </div>
+  </BasePage>
 </template>
 
 <script setup>

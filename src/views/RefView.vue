@@ -1,6 +1,5 @@
 <template>
-  <div class="home">
-    <h1>Using <code>ref()</code> for basic data reactivity</h1>
+  <BasePage>
     <!--
       `name` and `age` will be reactive because we declared them using ref() on setup().
 
@@ -13,7 +12,7 @@
     <button @click="handleClick">Click Me</button>
     <br>
     <button @click="age++">Add 1 to Age</button>
-  </div>
+  </BasePage>
 </template>
 
 <script setup>

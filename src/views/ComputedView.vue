@@ -1,16 +1,15 @@
 <template>
-  <div class="home">
-    <h1>Using <code>computed()</code></h1>
-
+  <BasePage>
     <input type="text" v-model="search">
     <p>Search term - {{ search }}</p>
     <div v-for="name in matchingNames" :key="name">
       {{ name }}
     </div>
-  </div>
+  </BasePage>
 </template>
 
 <script setup>
+import BasePage from '@/components/BasePage.vue';
 import { computed, ref } from 'vue';
 
 const search = ref('')

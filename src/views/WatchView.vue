@@ -1,7 +1,5 @@
 <template>
-  <div class="home">
-    <h1><code>watch()</code> vs <code>watchEffect()</code></h1>
-
+  <BasePage>
     <input type="text" v-model="search">
     <p>Search term - {{ search }}</p>
     <div v-for="name in matchingNames" :key="name">
@@ -9,7 +7,7 @@
     </div>
 
     <button @click="handleClick">Stop Watching</button>
-  </div>
+  </BasePage>
 </template>
 
 <script setup>
