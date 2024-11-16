@@ -8,39 +8,32 @@
       since Vue automatically proxies the value.
     -->
     <p>My name is {{ name }} and my age is {{ age }}</p>
-    <button @click="handleClick">Click Me</button>
-    <button @click="age++">Add 1 to Age</button>
     <input type="text" v-model="name">
+    <br>
+    <button @click="handleClick">Click Me</button>
+    <br>
+    <button @click="age++">Add 1 to Age</button>
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 
-export default {
-  name: 'RefView',
-  setup() {
-    /**
-     * Now we declare each data using ref() to make them reactive!
-     * 
-     * Also notice how we use const now because
-     * we want the reference object itself to be static.
-     */
-    const name = ref('Mario')
-    const age = ref(30)
+/**
+ * Now we declare each data using ref() to make them reactive!
+ * 
+ * Also notice how we use const now because
+ * we want the reference object itself to be static.
+ */
+const name = ref('Mario')
+const age = ref(30)
 
-    const handleClick = () => {
-      /**
-       * To change the value of a reactive variable inside the <script> tag,
-       * we must refer to them using [ref_name].value
-       */
-      name.value = 'Luigi'
-      age.value = 35
-    }
-
-    return {
-      name, age, handleClick
-    }
-  }
+const handleClick = () => {
+  /**
+   * To change the value of a reactive variable inside the <script> tag,
+   * we must refer to them using [ref_name].value
+   */
+  name.value = 'Luigi'
+  age.value = 35
 }
 </script>

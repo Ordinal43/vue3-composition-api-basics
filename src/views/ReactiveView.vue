@@ -10,9 +10,8 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { ref, reactive } from 'vue';
-
 /**
  * Good reading material:
  * - Use cases for refs vs reactive   : https://stackoverflow.com/a/65262638
@@ -22,55 +21,51 @@ import { ref, reactive } from 'vue';
  * Recommended is to ONLY USE ONE OR THE OTHER for consistency.
  */
 
-export default {
-  name: 'ReactiveView',
-  setup() {
-    /**
-     * Declaring a data using ref() and reactive() may seem similar on the surface...
-     * But we can see the difference when we want to access them (see below).
-     */
-    const personOne = ref({ name: 'Mario', age: 30 });
-    const personTwo = reactive({ name: 'Luigi', age: 35 });
+/**
+ * Declaring a data using ref() and reactive() may seem similar on the surface...
+ * But we can see the difference when we want to access them (see below).
+ */
+const personOne = ref({ name: 'Mario', age: 30 });
+const personTwo = reactive({ name: 'Luigi', age: 35 });
 
-    /**
-     * The downside of using reactive() is:
-     * !! We can only declare OBJECTS, not primitive values !!
-     * 
-     * See a example below
-     */
-    const jobOne = ref('Plumber') // This works!
-    const jobTwo = reactive('Plumber') // This cannot work.
-    
-    /**
-     * To access data declared using ref(),
-     * we must access it via [ref_name].value
-     */
-    const updatePersonOne = () => {
-      personOne.value.name = 'Super Mario'
-      personOne.value.age = 40
-      jobOne.value = "Electrician"
-    }
+/**
+ * The downside of using reactive() is:
+ * !! We can only declare OBJECTS, not primitive values !!
+ * 
+ * See a example below
+ */
+const jobOne = ref('Plumber') // This works!
+const jobTwo = reactive('Plumber') // This cannot work.
 
-    /**
-     * To access data declared using ref(),
-     * we can access it straight using its [ref_name].
-     * 
-     * But it's not a replacement for refs
-     */
-    const updatePersonTwo = () => {
-      personTwo.name = 'Super Luigi'
-      personTwo.age = 45
-      /**
-       * None of these will work since reactive can't accept primitive values.
-       * These 2 will cause an 'invalid assignment' error!
-       */
-      jobTwo = "Electrician"
-      jobTwo = reactive("Electrician")
-    }
+/**
+ * To access data declared using ref(),
+ * we must access it via [ref_name].value
+ */
+const updatePersonOne = () => {
+  personOne.value.name = 'Super Mario'
+  personOne.value.age = 40
+  jobOne.value = "Electrician"
+}
 
-    return {
-      personOne, personTwo, updatePersonOne, updatePersonTwo, jobOne, jobTwo
-    }
+/**
+ * To access data declared using ref(),
+ * we can access it straight using its [ref_name].
+ * 
+ * But it's not a replacement for refs
+ */
+const updatePersonTwo = () => {
+  personTwo.name = 'Super Luigi'
+  personTwo.age = 45
+  /**
+   * None of these will work since reactive can't accept primitive values.
+   * These 2 will cause an 'invalid assignment' error!
+   */
+  try {
+    jobTwo = "Electrician"
+    jobTwo = reactive("Electrician")
+  } catch (error) {
+    alert(error)
+    console.error(error)
   }
 }
 </script>
