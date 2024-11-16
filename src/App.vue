@@ -59,4 +59,16 @@ nav a.router-link-exact-active {
   color: white;
 }
 
+code {
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+nav code {
+  background: #17212c;
+}
+
+.content code {
+  background: lightgrey;
+}
 </style>
