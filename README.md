@@ -1,4 +1,4 @@
-# vue3-blog-composition-api
+# Vue 3 Composition API Playground
 
 ## Project setup
 ```
