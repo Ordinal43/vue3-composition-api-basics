@@ -1,5 +1,7 @@
 # Vue 3 Composition API Playground
 
+![img](https://i.ibb.co/B6tSmZs/img.png)
+
 ## Project setup
 ```
 npm install
